@@ -8,7 +8,9 @@ import random
 from polynomial import polynomialsOver
 from modp import *
 from euclidian import *
-
+from Shortcut import *
+from math import sqrt
+from itertools import count, islice
 
 
 # isIrreducible: Polynomial, int -> bool
@@ -22,7 +24,7 @@ def isIrreducible(polynomial, p):
                         (ZmodP.__name__, polynomial.field.__name__))
 
     poly = polynomialsOver(ZmodP).factory
-    x = poly([0,1])
+    x = poly([0,1])                                                                 
     powerTerm = x
     isUnit = lambda p: p.degree() == 0
 
@@ -51,6 +53,54 @@ def generateIrreduciblePolynomial(modulus, degree):
 
         if isIrreducible(randomMonicPolynomial, modulus):
             return randomMonicPolynomial
+        
+
+
+def generateIrreduciblePolynomialV2(modulus, degree):
+    Zp = IntegersModP(modulus)
+    Polynomial = polynomialsOver(Zp)
+
+    while True:
+        coefficients = [Zp(random.randint(0, modulus-1)) for _ in range(degree)]
+        randomMonicPolynomial = Polynomial(coefficients + [Zp(1)])
+        print(randomMonicPolynomial)
+
+        if isIrreducibleV2(randomMonicPolynomial, modulus):
+            return randomMonicPolynomial
+
+
+def isPrime(n):
+    if n < 2:
+        return False
+
+    for number in islice(count(2), int(sqrt(n) - 1)):
+        if n % number == 0:
+            return False
+
+    return True
+
+
+def isIrreducibleV2(polynomial, p):
+    ZmodP = IntegersModP(p)
+    if polynomial.field is not ZmodP:
+        raise TypeError("Given a polynomial that's not over %s, but instead %r" %
+                        (ZmodP.__name__, polynomial.field.__name__))
+
+    poly = polynomialsOver(ZmodP).factory
+    x = poly([0,1])                                                                 
+    isUnit = lambda p: p.degree() == 0
+    
+    
+    n = polynomial.degree()
+    for i in range(int(n / 2)):
+        d = i+1
+        r = n % d
+        if  r == 0 and isPrime(d/n):
+            gcdOverZmodp = shortCut(p,d,polynomial)
+        if not isUnit(gcdOverZmodp):
+            return False
+
+    return True
 
 
 # create a type constructor for the finite field of order p^m for p prime, m >= 1

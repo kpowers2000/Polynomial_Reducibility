@@ -50,7 +50,11 @@ def polynomialsOver(field=fractions.Fraction):
 
 
         def isZero(self): return self.coefficients == []
-
+        
+        """I added the following definition  -Keenan"""
+        def getCoeffs(self):
+            return self.coefficients
+            
         def __repr__(self):
             if self.isZero():
                 return '0'
@@ -96,7 +100,6 @@ def polynomialsOver(field=fractions.Fraction):
 
             return Polynomial(newCoeffs)
 
-
         @typecheck
         def __divmod__(self, divisor):
             quotient, remainder = Zero(), self
@@ -130,7 +133,7 @@ def polynomialsOver(field=fractions.Fraction):
 
     def Zero():
         return Polynomial([])
-
+        
 
     Polynomial.field = field
     Polynomial.__name__ = '(%s)[x]' % field.__name__
