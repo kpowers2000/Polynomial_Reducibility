@@ -10,7 +10,7 @@ Give it a try!!!! As of June 23 2021, there is now an interactive program I inst
 and our Reducibility Reader will test the polynomial for irreducibility in a given finite field.
 
 For a more in depth discussion on this topic please refer to https://drive.google.com/file/d/1pyuoHKK0tJjoAwWCbR_JKdif784hjFz5/view?usp=sharing
-This document is broken into 3 parts:
+This document is broken into 3 parts
   Part a) Proof of theorem (1)
   Part b) Analysis of code and its complexity
   Part c) Analysis of irreducible polynomials and patterns that form
@@ -18,7 +18,7 @@ This document is broken into 3 parts:
 Here is pseudocode that gives the basic logical progression of the program
 1. Create polynomial, poly=x
 2. Let i = 0
-3. If i == n/2 then the polynomial is irreducible. Exit
+3. If i == n/2 then the polynomial is irreducible. Exit 
 4. i = i + +
 5. Let poly=polyp mod f(x)
 6. If n mod i == 0, then go to step (7), otherwise, return to step (3).
