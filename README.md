@@ -7,7 +7,7 @@ This program was created to analyze the reducibility of polynomials in finite fi
 A proof for this theorem can be found here https://drive.google.com/file/d/1qumikcTN5DQCxDQScuSVCYEqGjtUHgIN/view?usp=sharing
 
 Give it a try!!!! As of June 23 2021, there is now an interactive program I instituted where you can specify a polynomial 
-and our Reducibility Reader will test the polynomial for irreducibility in a given finite field.
+and our Reducibility Reader will test the polynomial for irreducibility in a given finite field.  Run TryMe_InteractiveIrreducibilityChecker.py to give it a shot!
 
 For a more in depth discussion on this topic please refer to https://drive.google.com/file/d/1pyuoHKK0tJjoAwWCbR_JKdif784hjFz5/view?usp=sharing
 This document is broken into 3 parts:
