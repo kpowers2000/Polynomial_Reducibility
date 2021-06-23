@@ -101,6 +101,3 @@ class FieldElement(DomainElement):
     def __rtruediv__(self, other): return self.inverse() * other
     def __div__(self, other): return self.__truediv__(other)
     def __rdiv__(self, other): return self.__rtruediv__(other)
-    
-    
-    

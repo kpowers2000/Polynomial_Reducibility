@@ -84,4 +84,3 @@ def IntegersModP(p):
 
 if __name__ == "__main__":
     mod7 = IntegersModP(7)
-

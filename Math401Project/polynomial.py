@@ -52,7 +52,7 @@ def polynomialsOver(field=fractions.Fraction):
         def isZero(self): return self.coefficients == []
         
         """I added the following definition  -Keenan"""
-        def getCoeffs(self):
+        def getCoefs(self):
             return self.coefficients
             
         def __repr__(self):
@@ -139,5 +139,3 @@ def polynomialsOver(field=fractions.Fraction):
     Polynomial.__name__ = '(%s)[x]' % field.__name__
     Polynomial.englishName = 'Polynomials in one variable over %s' % field.__name__
     return Polynomial
-
-

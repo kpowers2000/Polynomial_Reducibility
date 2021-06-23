@@ -7,7 +7,7 @@ Created on Apr 18, 2021
 import random
 from polynomial import polynomialsOver
 from modp import *
-from euclidian import *
+from euclidean import *
 from Shortcut import *
 from math import sqrt
 from itertools import count, islice
@@ -67,17 +67,45 @@ def generateIrreduciblePolynomialV2(modulus, degree):
 
         if isIrreducibleV2(randomMonicPolynomial, modulus):
             return randomMonicPolynomial
+        
+        
+    
+
+def generatePolynomial(modulus, degree):
+    Zp = IntegersModP(modulus)
+    Polynomial = polynomialsOver(Zp)
+
+    coefficients = [Zp(random.randint(0, modulus-1)) for _ in range(degree)]
+    randomMonicPolynomial = Polynomial(coefficients + [Zp(1)])
+    
+    return randomMonicPolynomial
+
+def generateRandomDegreePolynomial(modulus):
+    Zp = IntegersModP(modulus)
+    Polynomial = polynomialsOver(Zp)
+
+    coefficients = [Zp(random.randint(0, modulus-1)) for _ in range(modulus+1)]
+    nonzero = [i for i, e in enumerate(coefficients) if e != 0]
+    if(len(nonzero)>0):
+        lastNonzero = nonzero[len(nonzero)-1]
+        coefficients[lastNonzero] = Zp(1)
+    randomMonicPolynomial = Polynomial(coefficients)
+    
+    return randomMonicPolynomial
 
 
-def isPrime(n):
-    if n < 2:
-        return False
 
-    for number in islice(count(2), int(sqrt(n) - 1)):
-        if n % number == 0:
-            return False
-
-    return True
+def isPrime(num):
+    prime = True
+    if num> 1:
+        # check for factors
+        for i in range(2, num):
+            if (num % i) == 0:
+                # if factor is found, set flag to True
+                prime = False
+                # break out of loop
+                break
+    return prime
 
 
 def isIrreducibleV2(polynomial, p):
@@ -94,11 +122,11 @@ def isIrreducibleV2(polynomial, p):
     n = polynomial.degree()
     for i in range(int(n / 2)):
         d = i+1
-        r = n % d
-        if  r == 0 and isPrime(d/n):
+        r = (n+1) % d
+        if  r == 0:
             gcdOverZmodp = shortCut(p,d,polynomial)
-        if not isUnit(gcdOverZmodp):
-            return False
+            if not isUnit(gcdOverZmodp):
+                return False
 
     return True
 
@@ -182,5 +210,4 @@ if __name__ == "__main__":
     x = F23([1,1])
 
     F35 = FiniteField(3,5)
-    y = F35([1,1,2])
-    
+    y = F35([1,1,2])    
