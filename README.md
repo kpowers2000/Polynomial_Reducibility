@@ -10,7 +10,7 @@ Give it a try!!!! As of June 23 2021, there is now an interactive program I inst
 and our Reducibility Reader will test the polynomial for irreducibility in a given finite field.
 
 For a more in depth discussion on this topic please refer to https://drive.google.com/file/d/1pyuoHKK0tJjoAwWCbR_JKdif784hjFz5/view?usp=sharing
-This document is broken into 3 parts
+This document is broken into 3 parts:
 Part a) Proof of theorem (1)
 Part b) Analysis of code and its complexity
 Part c) Analysis of irreducible polynomials and patterns that form
