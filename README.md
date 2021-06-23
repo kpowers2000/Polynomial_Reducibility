@@ -11,10 +11,9 @@ and our Reducibility Reader will test the polynomial for irreducibility in a giv
 
 For a more in depth discussion on this topic please refer to https://drive.google.com/file/d/1pyuoHKK0tJjoAwWCbR_JKdif784hjFz5/view?usp=sharing
 This document is broken into 3 parts
-
-\nPart a) Proof of theorem (1)
-\nPart b) Analysis of code and its complexity
-\nPart c) Analysis of irreducible polynomials and patterns that form
+Part a) Proof of theorem (1)
+Part b) Analysis of code and its complexity
+Part c) Analysis of irreducible polynomials and patterns that form
   
 Here is pseudocode that gives the basic logical progression of the program
 1. Create polynomial, poly=x
