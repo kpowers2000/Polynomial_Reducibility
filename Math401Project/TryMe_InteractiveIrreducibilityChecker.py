@@ -64,11 +64,11 @@ def main():
             if tries == 1:
                 delay_print("Wow, you got it on your first try.  You're a polynomial pro.  Play again in a different field to increase you irreducible intuition.", .01)
             if tries <= 3:
-                delay_print("Wow, it only took you %d tries.  You might be a polynomial pro." % tries, .01)
+                delay_print("Wow, it only took you %d tries.  You're close to becoming a polynomial pro." % tries, .01)
             elif tries <=5:
                 delay_print("You did pretty good, it took you %d tries.  Play again to become a polynomial pro." % tries, .01)
             else:
-                delay_print("It took you %d tries. Good job, though you still have a long way to go to become a polynomial pro." % tries, .01)
+                delay_print("It took you %d tries. Good job! Although, you still have a long way to go before you become a polynomial pro." % tries, .01)
             break
         else:
             print("\nLooks like I win this round, the polynomial you entered can be reduced. Keep trying!\n")
