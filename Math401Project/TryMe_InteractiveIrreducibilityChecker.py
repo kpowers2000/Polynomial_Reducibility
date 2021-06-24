@@ -62,13 +62,13 @@ def main():
         if irreducible:
             print("\nCongratualtions, you win! The polynomial you entered is irreducible!")
             if tries == 1:
-                delay_print("Wow, you got it on your first try.  You're a polynomial pro", .01)
+                delay_print("Wow, you got it on your first try.  You're a polynomial pro.  Play again in a different field to increase you irreducible intuition.", .01)
             if tries <= 3:
-                delay_print("Wow, it only took you %d tries.  You must be a polynomial pro" % tries, .01)
+                delay_print("Wow, it only took you %d tries.  You might be a polynomial pro." % tries, .01)
             elif tries <=5:
-                delay_print("You did pretty good, it took you %d tries.  Play again to become a polynomial pro" % tries, .01)
+                delay_print("You did pretty good, it took you %d tries.  Play again to become a polynomial pro." % tries, .01)
             else:
-                delay_print("It took you %d tries. Good job!  Play again in a different field to increase you irreducible intuition." % tries, .01)
+                delay_print("It took you %d tries. Good job, though you still have a long way to go to become a polynomial pro." % tries, .01)
             break
         else:
             print("\nLooks like I win this round, the polynomial you entered can be reduced. Keep trying!\n")
@@ -76,10 +76,10 @@ def main():
         delay_print("Number of tries: %d" % tries, .04)
         poly = raw_input("\nPlease type the coefficients of the polynomial in the format specified above.\n Or, if you wish to quit, just type 'q'\n")
         if poly.lower() == 'q':
-            print("Well, I'm sorry to hear that.")
+            print("Well, I'm sorry to hear that :(")
             break
         tries = tries + 1
-    print("\nIf you have any questions about abstract algebra or this code, feel free to email me @keenan.f.powers@gmail.com\n Have a nice day!")
+    print("\nIf you have any questions about abstract algebra or this code, feel free to email me @keenan.f.powers27@gmail.com\n Have a nice day!")
     return
 
 
